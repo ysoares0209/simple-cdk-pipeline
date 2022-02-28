@@ -1,8 +1,39 @@
-# Welcome to your CDK TypeScript project
+## Description
 
-This is a blank project for TypeScript development with CDK.
+This is my first go in learning CDK. Bear in mind that the code is a bit rubbish, as I did not try to make it good but rather focused on undestanding the concept of cdk.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## What it does
+
+This is a very simple, very dummy stack.
+The idea here is that a S3 bucket is going to be created with a notification for when an item is added, this notification is going to call a lambda, which is going to persist this item (if csv) to a dynamoDB table.
+
+The csv I was using for test is:
+
+[test.csv](https://github.com/ysoares0209/simple-cdk-pipeline/files/8157389/test.csv)
+
+```
+name | middle name | age
+Yan  | Soares      |  19
+```
+## How to test it
+(or at least how I did it)
+
+- clone the repo
+- npm ci
+- npm run build
+- cdk boostrap
+- cdk synth
+- cdk deploy
+
+On AWS console
+ - Go to S3
+ - there should be a bucket created by this app
+ - Add the test csv there - you can add your own csv with different fields at your own risk as I did not bother testing those
+ - Go to DynamoDB
+ - See the `mySampleTable` table
+ - check the items in this table
+ - Item in csv should be there
+
 
 ## Useful commands
 
